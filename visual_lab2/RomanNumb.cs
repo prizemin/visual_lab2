@@ -10,7 +10,7 @@ namespace VisualLab2
         {
             if (n <= 0)
             {
-                throw new RomanNumberException();
+                throw new RomanNumbExc();
             }
             numb = n;
         }
@@ -20,7 +20,7 @@ namespace VisualLab2
         }
         public static RomanNumb Sub(RomanNumb? n1, RomanNumb? n2)
         {
-            if (n1.numb <= n2.numb) throw new RomanNumberException();
+            if (n1.numb <= n2.numb) throw new RomanNumbExc();
             return new RomanNumb((ushort)(n1.numb - n2.numb));
         }
         public static RomanNumb Mul(RomanNumb? n1, RomanNumb? n2)
@@ -51,7 +51,7 @@ namespace VisualLab2
             if (number >= 5) return "V" + toRoman(number - 5);
             if (number >= 4) return "IV" + toRoman(number - 4);
             if (number >= 1) return "I" + toRoman(number - 1);
-            throw new RomanNumberException();
+            throw new RomanNumbExc();
         }
 
         public object Clone()
@@ -62,7 +62,7 @@ namespace VisualLab2
         public int CompareTo(object obj)
         {
             if (obj is RomanNumb num) return numb.CompareTo(num.numb);
-            else throw new RomanNumberException("Некорректное значение аргумента");
+            else throw new RomanNumbExc("Некорректное значение аргумента");
         }
 
     }
